@@ -4,6 +4,7 @@ package com.spring.mvc.psi.entities;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.Table;
 import org.hibernate.annotations.Immutable;
 
@@ -17,14 +18,18 @@ public class Inventory {
     @Column
     private String name;
     
+    @Column(name = "image", columnDefinition = "clob")
+    @Lob
+    private String image;
+    
     @Column(name = "PU_QTY")
-    private Integer puQTY;
+    private Integer puQty;
     
     @Column(name = "PU_TOTAL")
     private Integer puTotal;
     
     @Column(name = "SA_QTY")
-    private Integer saQTY;
+    private Integer saQty;
     
     @Column(name = "SA_TOTAL")
     private Integer saTotal;
@@ -45,12 +50,12 @@ public class Inventory {
         this.name = name;
     }
 
-    public Integer getPuQTY() {
-        return puQTY;
+    public Integer getPuQty() {
+        return puQty;
     }
 
-    public void setPuQTY(Integer puQTY) {
-        this.puQTY = puQTY;
+    public void setPuQty(Integer puQty) {
+        this.puQty = puQty;
     }
 
     public Integer getPuTotal() {
@@ -61,12 +66,12 @@ public class Inventory {
         this.puTotal = puTotal;
     }
 
-    public Integer getSaQTY() {
-        return saQTY;
+    public Integer getSaQty() {
+        return saQty;
     }
 
-    public void setSaQTY(Integer saQTY) {
-        this.saQTY = saQTY;
+    public void setSaQty(Integer saQty) {
+        this.saQty = saQty;
     }
 
     public Integer getSaTotal() {
@@ -77,10 +82,15 @@ public class Inventory {
         this.saTotal = saTotal;
     }
 
-    @Override
-    public String toString() {
-        return "Inventory{" + "id=" + id + ", name=" + name + ", puQTY=" + puQTY + ", puTotal=" + puTotal + ", saQTY=" + saQTY + ", saTotal=" + saTotal + '}';
+    public String getImage() {
+        return image;
     }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    
     
     
 }
